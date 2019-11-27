@@ -1,31 +1,22 @@
 import React from 'react';
 import { Header as LQNHeader } from 'lqn-components';
 import { Dropdown, Menu, Icon } from 'antd';
-import { Link } from 'react-router-dom';
-
-import { useQuery } from '@apollo/react-hooks';
-import { me } from './headerQuery';
 
 import { User } from './headerStyles';
 
-const Header = () => {
-  const { loading, data } = useQuery(me);
-  if (loading) return null;
-
-  const user = data ? data.user : null;
-
+const Header = ({ user, ...props }) => {
   return (
-    <LQNHeader>
+    <LQNHeader {...props}>
       <User>
         {user && (
           <Dropdown
             overlay={
               <Menu>
                 <Menu.Item key="open">
-                  <Link to="/dashboard">Mis solicitudes</Link>
+                  <a href="/dashboard">Mis solicitudes</a>
                 </Menu.Item>
                 <Menu.Item key="close">
-                  <Link to="/logout">Cerrar sesión</Link>
+                  <a href="/logout">Cerrar sesión</a>
                 </Menu.Item>
               </Menu>
             }

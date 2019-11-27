@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import { Card } from 'lqn-components';
 
 import { useQuery } from '@apollo/react-hooks';
-import { me } from './homeQuery';
 
 import {
   SubTitle,
@@ -20,12 +19,8 @@ import Docs from '../../assets/docs.svg';
 import Collect from '../../assets/collect.svg';
 import Deliver from '../../assets/deliver.svg';
 
-const Home = () => {
+const Home = ({ user, documents }) => {
   const history = useHistory();
-  const { loading, data } = useQuery(me);
-  if (loading) return null;
-
-  const user = data ? data.user : null;
 
   return (
     <React.Fragment>
@@ -34,15 +29,11 @@ const Home = () => {
         estudio de tu crédito
       </SubTitle>
       <List>
-        <ListItem>
-          <ListText>Cédula de ciudadanía</ListText>
-        </ListItem>
-        <ListItem>
-          <ListText>Certificado laboral</ListText>
-        </ListItem>
-        <ListItem>
-          <ListText>Certificado de ingresos y retenciones</ListText>
-        </ListItem>
+        {documents.map(({ id, documentBank }) => (
+          <ListItem key={id}>
+            <ListText>{documentBank.name}</ListText>
+          </ListItem>
+        ))}
       </List>
       <Spacer />
       <Title>
@@ -79,6 +70,12 @@ const Home = () => {
           spacing={10}
           label="Entregar en oficina"
           icon={Deliver}
+          onClick={() =>
+            history.push({
+              pathname: '/collect',
+              search: global.location.search
+            })
+          }
         />
       </Cards>
     </React.Fragment>
