@@ -42,19 +42,27 @@ const Documents = ({ leadCode }) => {
           </Button>
         ) : null}
       </Content>
-      <SubTitle>Documentos pendientes ({docsPending.length})</SubTitle>
+      {docsPending.length > 0 && (
+        <SubTitle>Documentos pendientes ({docsPending.length})</SubTitle>
+      )}
       {docsPending.map(document => (
         <Document key={document.id} document={document} />
       ))}
-      <SubTitle>Documentos en revisión ({docsRevision.length})</SubTitle>
+      {docsRevision.length > 0 && (
+        <SubTitle>Documentos en revisión ({docsRevision.length})</SubTitle>
+      )}
       {docsRevision.map(document => (
         <Document key={document.id} document={document} />
       ))}
-      <SubTitle>Documentos cargados ({docsAgreed.length})</SubTitle>
+      {docsAgreed.length > 0 && (
+        <SubTitle>Documentos cargados ({docsAgreed.length})</SubTitle>
+      )}
       {docsAgreed.map(document => (
         <Document key={document.id} document={document} />
       ))}
-      <SubTitle>Documentos por corregir ({docsRejected.length})</SubTitle>
+      {docsRejected.length > 0 && (
+        <SubTitle>Documentos por corregir ({docsRejected.length})</SubTitle>
+      )}
       {docsRejected.map(document => (
         <Document key={document.id} document={document} />
       ))}
