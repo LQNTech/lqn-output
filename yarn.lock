@@ -3580,6 +3580,10 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.2.0, loose-envify@^1.3
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
+"lqn-components@ssh://git@github.com:LQNTech/lqn-components.git":
+  version "1.0.0"
+  resolved "ssh://git@github.com:LQNTech/lqn-components.git#606d7a9f5574af6f4d4803815e95babba3740091"
+
 magic-string@^0.22.4:
   version "0.22.5"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.22.5.tgz#8e9cf5afddf44385c1da5bc2a6a0dbd10b03657e"
