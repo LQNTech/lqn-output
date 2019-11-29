@@ -9,7 +9,7 @@ const ModalError = ({ docsRejected, handleClick }) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (docsRejected.length > true) {
+      if (docsRejected.length > 0) {
         setShow(true);
       }
     }, 2000);
