@@ -4,7 +4,7 @@ import { Container, Content, Text, Pink, Button } from './modalErrorStyles';
 
 import imgDocs from '../../../../assets/document.svg';
 
-const ModalError = React.forwardRef(({ docsRejected }, ref) => {
+const ModalError = ({ docsRejected, handleClick }) => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -15,14 +15,6 @@ const ModalError = React.forwardRef(({ docsRejected }, ref) => {
     }, 2000);
     return () => clearTimeout(timer);
   }, [docsRejected]);
-
-  const handleClick = () => {
-    setShow(false);
-    ref.current.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
-  };
 
   return (
     <Container style={{ display: show ? 'block' : 'none' }}>
@@ -37,10 +29,17 @@ const ModalError = React.forwardRef(({ docsRejected }, ref) => {
             {i + 1}. {documentBank.name}
           </div>
         ))}
-        <Button onClick={handleClick}>Ir a corregir</Button>
+        <Button
+          onClick={() => {
+            setShow(false);
+            handleClick();
+          }}
+        >
+          Ir a corregir
+        </Button>
       </Content>
     </Container>
   );
-});
+};
 
 export default ModalError;

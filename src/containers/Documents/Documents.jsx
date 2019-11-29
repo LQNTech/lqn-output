@@ -26,6 +26,13 @@ const Documents = ({ leadCode }) => {
   const docsRejected = documents.filter(doc => doc.rejected);
 
   const refReject = React.createRef();
+  const handleClick = () => {
+    setShow(false);
+    refReject.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  };
 
   return (
     <React.Fragment>
@@ -68,7 +75,7 @@ const Documents = ({ leadCode }) => {
       {docsRejected.map(document => (
         <Document key={document.id} ref={refReject} document={document} />
       ))}
-      <ModalError docsRejected={docsRejected} ref={refReject} />
+      <ModalError docsRejected={docsRejected} handleClick={handleClick} />
     </React.Fragment>
   );
 };
