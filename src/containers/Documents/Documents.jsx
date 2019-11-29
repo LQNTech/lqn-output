@@ -25,6 +25,8 @@ const Documents = ({ leadCode }) => {
   const docsAgreed = documents.filter(doc => doc.agreed);
   const docsRejected = documents.filter(doc => doc.rejected);
 
+  const refReject = React.createRef();
+
   return (
     <React.Fragment>
       <Content>
@@ -55,7 +57,7 @@ const Documents = ({ leadCode }) => {
         <Document key={document.id} document={document} />
       ))}
       {docsAgreed.length > 0 && (
-        <SubTitle>Documentos cargados ({docsAgreed.length})</SubTitle>
+        <SubTitle>Documentos aceptados ({docsAgreed.length})</SubTitle>
       )}
       {docsAgreed.map(document => (
         <Document key={document.id} document={document} />
@@ -64,9 +66,9 @@ const Documents = ({ leadCode }) => {
         <SubTitle>Documentos por corregir ({docsRejected.length})</SubTitle>
       )}
       {docsRejected.map(document => (
-        <Document key={document.id} document={document} />
+        <Document key={document.id} ref={refReject} document={document} />
       ))}
-      <ModalError docsRejected={docsRejected} />
+      <ModalError docsRejected={docsRejected} ref={ref} />
     </React.Fragment>
   );
 };
