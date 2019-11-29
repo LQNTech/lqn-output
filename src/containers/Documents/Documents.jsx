@@ -68,7 +68,7 @@ const Documents = ({ leadCode }) => {
       {docsRejected.map(document => (
         <Document key={document.id} ref={refReject} document={document} />
       ))}
-      <ModalError docsRejected={docsRejected} ref={ref} />
+      <ModalError docsRejected={docsRejected} ref={refReject} />
     </React.Fragment>
   );
 };
