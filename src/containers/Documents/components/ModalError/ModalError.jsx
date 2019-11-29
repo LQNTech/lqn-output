@@ -25,7 +25,7 @@ const ModalError = ({ docsRejected, handleClick }) => {
           estudio de crédito
         </Text>
         {docsRejected.map(({ documentBank }, i) => (
-          <div>
+          <div key={i + 1}>
             {i + 1}. {documentBank.name}
           </div>
         ))}

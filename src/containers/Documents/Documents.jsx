@@ -11,7 +11,7 @@ import ModalError from './components/ModalError/ModalError';
 import { Content, Title, SubTitle, Button } from './documentsStyles';
 
 const Documents = ({ leadCode }) => {
-  const refReject = useRef();
+  const refReject = useRef(null);
   const history = useHistory();
   const { loading, data } = useQuery(documentsQuery, {
     variables: { code: leadCode }
@@ -71,10 +71,12 @@ const Documents = ({ leadCode }) => {
         <Document key={document.id} document={document} />
       ))}
       {docsRejected.length > 0 && (
-        <SubTitle>Documentos por corregir ({docsRejected.length})</SubTitle>
+        <SubTitle ref={refReject}>
+          Documentos por corregir ({docsRejected.length})
+        </SubTitle>
       )}
       {docsRejected.map(document => (
-        <Document key={document.id} ref={refReject} document={document} />
+        <Document key={document.id} document={document} />
       ))}
       <ModalError docsRejected={docsRejected} handleClick={handleClick} />
     </React.Fragment>
