@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { useQuery } from '@apollo/react-hooks';
@@ -11,10 +11,20 @@ import ModalError from './components/ModalError/ModalError';
 import { Content, Title, SubTitle, Button } from './documentsStyles';
 
 const Documents = ({ leadCode }) => {
+  const refReject = useRef();
   const history = useHistory();
   const { loading, data } = useQuery(documentsQuery, {
     variables: { code: leadCode }
   });
+
+  const handleClick = () => {
+    setShow(false);
+    refReject.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  };
+
   if (loading) return null;
 
   const documents = resolveNodes(data.allDocumentsLeadCredit);
@@ -24,15 +34,6 @@ const Documents = ({ leadCode }) => {
   const docsRevision = documents.filter(doc => doc.onRevision);
   const docsAgreed = documents.filter(doc => doc.agreed);
   const docsRejected = documents.filter(doc => doc.rejected);
-
-  const refReject = React.createRef();
-  const handleClick = () => {
-    setShow(false);
-    refReject.current.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
-  };
 
   return (
     <React.Fragment>
