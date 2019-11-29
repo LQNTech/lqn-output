@@ -18,7 +18,6 @@ const Documents = ({ leadCode }) => {
   });
 
   const handleClick = () => {
-    setShow(false);
     refReject.current.scrollIntoView({
       behavior: 'smooth',
       block: 'start'
