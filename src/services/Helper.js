@@ -1,3 +1,12 @@
+import acercasa from '../assets/acercasa.png';
+import cajaSocial from '../assets/banco-caja-social.png';
+import popular from '../assets/banco-popular.png';
+import bbva from '../assets/bbva.png';
+import avvillas from '../assets/avvillas.png';
+import colpatria from '../assets/colpatria.png';
+import credifamilia from '../assets/credifamilia.png';
+import itau from '../assets/itau.png';
+
 export const resolveNodes = list => {
   if (list) {
     const { edges } = list;
@@ -39,4 +48,18 @@ export const validateGQLResponse = (
     return errorFn(errors);
   }
   return okFn();
+};
+
+export const getBankImage = bankCode => {
+  const banks = {
+    BBVA_BANK: bbva,
+    AVVILLAS_BANK: avvillas,
+    ITAU_BANK: itau,
+    CAJA_SOCIAL_BANK: cajaSocial,
+    POPULAR_BANK: popular,
+    ACERCASA_BANK: acercasa,
+    COLPATRIA_BANK: colpatria,
+    CREDIFAMILIA_BANK: credifamilia
+  };
+  return banks[bankCode];
 };

@@ -3,6 +3,8 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import selectedBankQuery from './selectedBankQuery';
 
+import { resolveNodes, getBankImage } from '../../services/Helper';
+
 const SelectedBank = () => {
   const params = new URLSearchParams(global.location.search);
 
@@ -12,9 +14,15 @@ const SelectedBank = () => {
 
   if (loading) return null;
 
-  console.log(data);
+  const lead = resolveNodes(data.myLead)[0];
+  const simulators = resolveNodes(lead.simulatorSet);
+  const selectedBank = simulators.filter(simulator => simulator.selected);
 
-  return <div></div>;
+  return (
+    <div>
+      <img src={getBankImage(selectedBank.bank.code)} alt="Bank" />
+    </div>
+  );
 };
 
 export default SelectedBank;
