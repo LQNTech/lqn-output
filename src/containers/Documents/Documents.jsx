@@ -6,6 +6,7 @@ import documentsQuery from './documentsQuery';
 
 import { resolveNodes } from '../../services/Helper';
 
+import SelectedBank from '../../components/SelectedBank/SelectedBank';
 import Document from './components/Document/Document';
 import ModalError from './components/ModalError/ModalError';
 import { Content, Title, SubTitle, Button } from './documentsStyles';
@@ -36,6 +37,7 @@ const Documents = ({ leadCode }) => {
 
   return (
     <React.Fragment>
+      <SelectedBank />
       <Content>
         <Title>Sube los documentos para enviar al banco</Title>
         {docsAgreed.length === documents.length ? (

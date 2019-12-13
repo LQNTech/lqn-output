@@ -2,8 +2,6 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Card } from 'lqn-components';
 
-import { useQuery } from '@apollo/react-hooks';
-
 import {
   SubTitle,
   Pink,
@@ -55,7 +53,7 @@ const Home = ({ user, documents }) => {
         <Card
           width={33.3}
           spacing={10}
-          label="Agendar cita para recogerlos"
+          label="Quiero que los recojan en mi domicilio"
           icon={Collect}
           onClick={() => {
             let Calendly = global.Calendly || [];
@@ -68,7 +66,7 @@ const Home = ({ user, documents }) => {
         <Card
           width={33.3}
           spacing={10}
-          label="Entregar en oficina"
+          label="Yo los llevo a LQN"
           icon={Deliver}
           onClick={() =>
             history.push({
