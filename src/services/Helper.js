@@ -1,3 +1,5 @@
+import numeral from 'numeral';
+
 import acercasa from '../assets/acercasa.png';
 import cajaSocial from '../assets/banco-caja-social.png';
 import popular from '../assets/banco-popular.png';
@@ -62,4 +64,11 @@ export const getBankImage = bankCode => {
     CREDIFAMILIA_BANK: credifamilia
   };
   return banks[bankCode];
+};
+
+export const formatNumber = (value, format) => {
+  if (format) {
+    return numeral(value).format(format || '');
+  }
+  return numeral(value).value();
 };

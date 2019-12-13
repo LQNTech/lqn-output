@@ -21,6 +21,7 @@
     "apollo-boost": "^0.4.4",
     "graphql": "^14.5.8",
     "lqn-components": "ssh://git@github.com:LQNTech/lqn-components.git",
+    "numeral": "^2.0.6",
     "styled-components": "^4.0.1"
   },
   "devDependencies": {

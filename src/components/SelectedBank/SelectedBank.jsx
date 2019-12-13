@@ -3,7 +3,11 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import selectedBankQuery from './selectedBankQuery';
 
-import { resolveNodes, getBankImage } from '../../services/Helper';
+import {
+  resolveNodes,
+  getBankImage,
+  formatNumber
+} from '../../services/Helper';
 
 import { Container, SubTitle, Title } from './selectedBankStyles';
 
@@ -26,6 +30,10 @@ const SelectedBank = () => {
       <div>
         <SubTitle>Tasa de interés</SubTitle>
         <Title>{selectedBank.nmvRate.toFixed(2)}%</Title>
+      </div>
+      <div>
+        <SubTitle>Ahorro</SubTitle>
+        <Title>{formatNumber(selectedBank.cxcSaving, '$0,0')}</Title>
       </div>
     </Container>
   );
