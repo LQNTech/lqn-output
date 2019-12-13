@@ -16,8 +16,7 @@ const SelectedBank = () => {
 
   const lead = resolveNodes(data.myLead)[0];
   const simulators = resolveNodes(lead.simulatorSet);
-  const selectedBank = simulators.filter(simulator => simulator.selected);
-  console.log(simulators, selectedBank);
+  const selectedBank = simulators.filter(simulator => simulator.selected)[0];
 
   return (
     <div>
