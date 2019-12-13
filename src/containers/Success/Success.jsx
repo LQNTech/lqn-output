@@ -29,8 +29,8 @@ const Success = ({ leadCode }) => {
     <Container>
       <img src={imgSuccess} />
       <Text>
-        Tus documentos han sido enviado al banco para <br />
-        el <Pink>estudio de tu crédito.</Pink>
+        Gracias por completar tu proceso, Estamos validando tus documentos para
+        iniciar el <Pink>estudio de crédito</Pink>, pronto te contactaremos.
       </Text>
       <Card>
         <Description>te hemos asignado un experto</Description>

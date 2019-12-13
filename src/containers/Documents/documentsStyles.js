@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Content = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 40px;
 `;
 
@@ -11,6 +11,7 @@ export const Title = styled.h2`
   line-height: 2.27;
   letter-spacing: -0.29px;
   color: #262d5e;
+  margin-bottom: 40px;
 `;
 
 export const SubTitle = styled.span`

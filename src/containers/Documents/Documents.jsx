@@ -38,21 +38,7 @@ const Documents = ({ leadCode }) => {
   return (
     <React.Fragment>
       <SelectedBank />
-      <Content>
-        <Title>Sube los documentos para enviar al banco</Title>
-        {docsAgreed.length === documents.length ? (
-          <Button
-            onClick={() =>
-              history.push({
-                pathname: '/success',
-                search: global.location.search
-              })
-            }
-          >
-            Enviar documentos
-          </Button>
-        ) : null}
-      </Content>
+      <Title>Sube los documentos para enviar al banco</Title>
       {docsPending.length > 0 && (
         <SubTitle>Documentos pendientes ({docsPending.length})</SubTitle>
       )}
@@ -79,6 +65,20 @@ const Documents = ({ leadCode }) => {
       {docsRejected.map(document => (
         <Document key={document.id} document={document} />
       ))}
+      {docsAgreed.length === documents.length ? (
+        <Content>
+          <Button
+            onClick={() =>
+              history.push({
+                pathname: '/success',
+                search: global.location.search
+              })
+            }
+          >
+            Enviar documentos
+          </Button>
+        </Content>
+      ) : null}
       <ModalError docsRejected={docsRejected} handleClick={handleClick} />
     </React.Fragment>
   );

@@ -8,6 +8,7 @@ export const Container = styled.div`
   border-radius: 6px;
   border: solid 1px #f1f1f1;
   background-color: #ffffff;
+  margin-bottom: 40px;
 `;
 
 export const SubTitle = styled.span``;
