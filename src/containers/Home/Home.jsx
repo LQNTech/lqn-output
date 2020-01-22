@@ -62,6 +62,7 @@ const Home = ({ user, documents }) => {
                 url: `https://calendly.com/lqn?name=${user.fullName}&email=${user.email}`
               });
           }}
+          footer="*Sujeto a cobertura"
         />
         <Card
           width={33.3}

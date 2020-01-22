@@ -9,7 +9,7 @@ const Collect = () => {
   return (
     <Container>
       <Title>
-        Trae tus documentos a <Pink>nuestra oficina</Pink> <br /> y recibe{' '}
+        Trae tus documentos a <Pink>LQN</Pink> <br /> y recibe{' '}
         <Pink>asesoría</Pink>
         sobre tu solicitud
       </Title>
@@ -17,8 +17,8 @@ const Collect = () => {
         <img src={Deliver} />
         <div>
           <span>Dirección</span>
-          <p>Cra 14 # 79 78 · Oficina 401</p>
-          <p>Barrio El Lago</p>
+          <p>Calle 71 B # 99 C – 32 Piso 3</p>
+          <p>Barrio Álamos</p>
         </div>
       </Address>
     </Container>
