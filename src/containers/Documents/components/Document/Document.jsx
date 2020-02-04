@@ -24,7 +24,7 @@ const Document = ({
   const [updateDocumentLead] = useMutation(documentMutation);
   const icon = agreed ? Docs3 : rejected ? Docs2 : Docs1;
 
-  const upload = () => setUploading(!uploading);
+  const upload = value => setUploading(value);
 
   const updateLeadFile = async fileId => {
     const params = new URLSearchParams(global.location.search);
@@ -41,7 +41,7 @@ const Document = ({
       validateGQLResponse(
         updateDocumentLeadCredit,
         () => console.log('fails'),
-        () => upload()
+        () => upload(false)
       );
     } catch (e) {
       console.log(e.message);
@@ -50,7 +50,7 @@ const Document = ({
 
   const uploadFile = async file => {
     try {
-      upload();
+      upload(true);
       const name = `${generateFileName()}.${fileExtension(file.name)}`;
       const formData = new FormData();
       formData.append('content_type', 'documents');
