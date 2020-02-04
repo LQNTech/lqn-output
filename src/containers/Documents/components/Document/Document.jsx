@@ -41,7 +41,7 @@ const Document = ({
       validateGQLResponse(
         updateDocumentLeadCredit,
         () => console.log('fails'),
-        upload()
+        () => upload()
       );
     } catch (e) {
       console.log(e.message);
@@ -93,7 +93,7 @@ const Document = ({
           rejected ||
           (file && !agreed && !onRevision && !rejected)) && (
           <Upload
-              customRequest={customRequest}
+            customRequest={customRequest}
             showUploadList={false}
             accept=".jpeg,.jpg,.png,application/pdf"
           >
