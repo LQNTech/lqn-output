@@ -20,7 +20,7 @@
     "@apollo/react-hooks": "^3.1.3",
     "apollo-boost": "^0.4.4",
     "graphql": "^14.5.8",
-    "lqn-components": "ssh://git@github.com:LQNTech/lqn-components.git",
+    "lqn-components": "https://github.com/LQNTech/lqn-components.git",
     "numeral": "^2.0.6",
     "styled-components": "^4.0.1"
   },
