@@ -9,7 +9,7 @@ import { resolveNodes } from '../../services/Helper';
 import SelectedBank from '../../components/SelectedBank/SelectedBank';
 import Document from './components/Document/Document';
 import ModalError from './components/ModalError/ModalError';
-import { Content, Title, SubTitle, Button } from './documentsStyles';
+import { Content, Title, SubTitle, Button, TitleDocument } from './documentsStyles';
 
 const Documents = ({ leadCode }) => {
   const refReject = useRef(null);
@@ -39,6 +39,7 @@ const Documents = ({ leadCode }) => {
     <React.Fragment>
       <SelectedBank />
       <Title>Sube los documentos para enviar al banco</Title>
+      <TitleDocument>*Los documentos deben estar en formato PDF y deben tener un tamaño máximo de hasta 50Mb</TitleDocument>
       {docsPending.length > 0 && (
         <SubTitle>Documentos pendientes ({docsPending.length})</SubTitle>
       )}

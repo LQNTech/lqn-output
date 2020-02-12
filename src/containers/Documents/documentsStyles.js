@@ -11,7 +11,12 @@ export const Title = styled.h2`
   line-height: 2.27;
   letter-spacing: -0.29px;
   color: #262d5e;
+  margin-bottom: 0px;
+`;
+
+export const TitleDocument = styled.h6`
   margin-bottom: 40px;
+  color: #FF2E63;
 `;
 
 export const SubTitle = styled.span`
