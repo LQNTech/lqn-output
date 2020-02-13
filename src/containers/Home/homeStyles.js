@@ -49,6 +49,7 @@ export const Title = styled.div`
 
 export const Cards = styled.div`
   padding: 20px 0px;
+  padding-top: 0px;
   display: flex;
   justify-content: space-between;
 `;

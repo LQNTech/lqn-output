@@ -39,50 +39,52 @@ const Home = ({ user, documents }) => {
         ¿Cómo quieres continuar con <Pink>tus documentos?</Pink>
       </Title>
       <Cards>
-        <Col xs={24} sm={24} md={8}>
-          <Card
-            width={33.3}
-            spacing={10}
-            label="Subir documentos ahora"
-            icon={Docs}
-            onClick={() =>
-              history.push({
-                pathname: '/documents',
-                search: global.location.search
-              })
-            }
+        <Row>
+          <Col xs={24} sm={24} md={8}>
+            <Card
+              width={100}
+              spacing={10}
+              label="Subir documentos ahora"
+              icon={Docs}
+              onClick={() =>
+                history.push({
+                  pathname: '/documents',
+                  search: global.location.search
+                })
+              }
+            />
+          </Col>
+          <Col xs={24} sm={24} md={8}>
+            <Card
+              width={100}
+              spacing={10}
+              label="Quiero que los recojan en mi domicilio"
+              icon={Collect}
+              onClick={() => {
+                let Calendly = global.Calendly || [];
+                user &&
+                  Calendly.initPopupWidget({
+                    url: `https://calendly.com/lqn?name=${user.fullName}&email=${user.email}`
+                  });
+              }}
+              footer="*Sujeto a cobertura"
           />
-        </Col>
-        <Col xs={24} sm={24} md={8}>
-          <Card
-            width={33.3}
-            spacing={10}
-            label="Quiero que los recojan en mi domicilio"
-            icon={Collect}
-            onClick={() => {
-              let Calendly = global.Calendly || [];
-              user &&
-                Calendly.initPopupWidget({
-                  url: `https://calendly.com/lqn?name=${user.fullName}&email=${user.email}`
-                });
-            }}
-            footer="*Sujeto a cobertura"
-        />
-        </Col>
-        <Col xs={24} sm={24} md={8}>
-          <Card
-            width={33.3}
-            spacing={10}
-            label="Yo los llevo a LQN"
-            icon={Deliver}
-            onClick={() =>
-              history.push({
-                pathname: '/collect',
-                search: global.location.search
-              })
-            }
-          />
-        </Col>
+          </Col>
+          <Col xs={24} sm={24} md={8}>
+            <Card
+              width={100}
+              spacing={10}
+              label="Yo los llevo a LQN"
+              icon={Deliver}
+              onClick={() =>
+                history.push({
+                  pathname: '/collect',
+                  search: global.location.search
+                })
+              }
+            />
+          </Col>
+        </Row>
       </Cards>
     </React.Fragment>
   );
