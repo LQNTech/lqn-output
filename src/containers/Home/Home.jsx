@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { Col } from 'antd';
+import { Col, Row } from 'antd';
 import { Card } from 'lqn-components';
 
 import {
