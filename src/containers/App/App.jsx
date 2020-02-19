@@ -24,8 +24,9 @@ export default ({ path, history }) => {
   });
   if (loading) return null;
 
-  const user = resolveNodes(data.me)[0];
+  const user = resolveNodes(data.me).length > 0 ? resolveNodes(data.me)[0] : null;;
   const documents = resolveNodes(data.allDocumentsLeadCredit);
+  const requirementSet = resolveNodes(user.requirementSet).length > 0 ? resolveNodes(user.requirementSet)[0] : null;
   if (!user || !documents) history.push('/');
 
   return (
@@ -35,7 +36,7 @@ export default ({ path, history }) => {
       <Container>
         <Switch>
           <Route exact path="/">
-            <Home user={user} documents={documents} />
+            <Home user={user} documents={documents} requirement={requirementSet}/>
           </Route>
           <Route path="/documents">
             <Documents leadCode={leadCode} />

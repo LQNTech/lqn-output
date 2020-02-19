@@ -7,6 +7,36 @@ export default gql`
         node {
           id
           fullName
+          email
+          codePhoneNumber
+          phoneNumber
+          requirementSet(first: 1){
+            edges{
+              node{
+                id
+                code
+                lastAssignedExpert{
+                  id
+                  fullName
+                  codePhoneNumber
+                  phoneNumber
+                  relationship
+                  email
+                  imageprofileSet{
+                    edges{
+                      node{
+                        id
+                        file{
+                          id
+                          file
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

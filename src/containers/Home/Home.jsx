@@ -18,7 +18,7 @@ import Docs from '../../assets/docs.svg';
 import Collect from '../../assets/collect.svg';
 import Deliver from '../../assets/deliver.svg';
 
-const Home = ({ user, documents }) => {
+const Home = ({ user, documents, requirement }) => {
   const history = useHistory();
 
   return (
@@ -64,7 +64,7 @@ const Home = ({ user, documents }) => {
                 let Calendly = global.Calendly || [];
                 user &&
                   Calendly.initPopupWidget({
-                    url: `https://calendly.com/lqn?name=${user.fullName}&email=${user.email}`
+                    url: `https://calendly.com/lqn?name=${user.fullName}&email=${user.email}&a2=${user.codePhoneNumber}${user.phoneNumber}&a3=${requirement && requirement.fullName}`
                   });
               }}
               footer="*Sujeto a cobertura"
