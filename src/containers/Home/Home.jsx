@@ -64,7 +64,7 @@ const Home = ({ user, documents, requirement }) => {
                 let Calendly = global.Calendly || [];
                 user &&
                   Calendly.initPopupWidget({
-                    url: `https://calendly.com/lqn?name=${user.fullName}&email=${user.email}&a2=${user.codePhoneNumber}${user.phoneNumber}&a3=${requirement && requirement.fullName}`
+                    url: `https://calendly.com/lqn?name=${user.fullName}&email=${user.email}&a2=${user.codePhoneNumber}${user.phoneNumber}&a3=${requirement ? requirement.fullName:''}`
                   });
               }}
               footer="*Sujeto a cobertura"
